@@ -45,56 +45,101 @@ class _CalculatorState extends State<Calculator> {
           childAspectRatio: 2.0,
           // Список дочерних виджетов
             children: <Widget> [
-              ElevatedButton(onPressed:(){textController.text = textController.text + "1";}, child: Text("1"),),
-              ElevatedButton(onPressed:(){textController.text = textController.text + "2";}, child: Text("2"),),
-              ElevatedButton(onPressed:(){textController.text = textController.text + "3";}, child: Text("3"),),
-              ElevatedButton(onPressed:(){
+              ElevatedButton(onPressed:(){textController.text = textController.text + "1";}, child: Text("1", style: TextStyle (
+                fontSize: 30,),),),
+              ElevatedButton(onPressed:(){textController.text = textController.text + "2";}, child: Text("2", style: TextStyle (
+                fontSize: 30,),),),
+              ElevatedButton(onPressed:(){textController.text = textController.text + "3";}, child: Text("3", style: TextStyle (
+                fontSize: 30,),),),
+              ElevatedButton(
+                style: ButtonStyle (
+                  backgroundColor: MaterialStateProperty.all<Color>(Colors.grey),),
+                onPressed:(){
                 number1 = int.tryParse(textController.text);
                 function = 1;
                 setState((){
                   textController.clear();
                 }
                 );
-              }, child: Text("+"),),
-              ElevatedButton(onPressed:(){textController.text = textController.text + "4";}, child: Text("4"),),
-              ElevatedButton(onPressed:(){textController.text = textController.text + "5";}, child: Text("5"),),
-              ElevatedButton(onPressed:(){textController.text = textController.text + "6";}, child: Text("6"),),
-              ElevatedButton(onPressed:(){
+              }, child:
+              Text("+", style: TextStyle (
+                fontSize: 30, //размер текста
+                color: Colors.black87,
+              ),),
+              ),
+              ElevatedButton(onPressed:(){textController.text = textController.text + "4";}, child: Text("4", style: TextStyle (
+                fontSize: 30,),),),
+              ElevatedButton(onPressed:(){textController.text = textController.text + "5";}, child: Text("5", style: TextStyle (
+                fontSize: 30,),),),
+              ElevatedButton(onPressed:(){textController.text = textController.text + "6";}, child: Text("6", style: TextStyle (
+                fontSize: 30,),),),
+              ElevatedButton(
+                style: ButtonStyle (
+                  backgroundColor: MaterialStateProperty.all<Color>(Colors.grey),),
+                onPressed:(){
                 number1 = int.tryParse(textController.text);
                 function = 2;
                 setState((){
                   textController.clear();
                 }
                 );
-              }, child: Text("-"),),
-              ElevatedButton(onPressed:(){textController.text = textController.text + "7";}, child: Text("7"),),
-              ElevatedButton(onPressed:(){textController.text = textController.text + "8";}, child: Text("8"),),
-              ElevatedButton(onPressed:(){textController.text = textController.text + "9";}, child: Text("9"),),
-              ElevatedButton(onPressed:(){
+              }, child: Text("-", style: TextStyle (
+                fontSize: 30, //размер текста
+                color: Colors.black87,
+              ),),),
+              ElevatedButton(onPressed:(){textController.text = textController.text + "7";}, child: Text("7", style: TextStyle (
+                fontSize: 30,),),),
+              ElevatedButton(onPressed:(){textController.text = textController.text + "8";}, child: Text("8", style: TextStyle (
+                fontSize: 30,),),),
+              ElevatedButton(onPressed:(){textController.text = textController.text + "9";}, child: Text("9", style: TextStyle (
+                fontSize: 30,),),),
+              ElevatedButton(
+                style: ButtonStyle (
+                  backgroundColor: MaterialStateProperty.all<Color>(Colors.grey),),
+                onPressed:(){
                 number1 = int.tryParse(textController.text);
                 function = 3;
                 setState((){
                   textController.clear();
                 }
                 );
-              }, child: Text("*"),),
-              ElevatedButton(onPressed:(){textController.text = "";
+              }, child: Text("*", style: TextStyle (
+                fontSize: 30, //размер текста
+                color: Colors.black87,
+              ),),),
+              ElevatedButton(
+                style: ButtonStyle (
+                  backgroundColor: MaterialStateProperty.all<Color>(Colors.grey),),
+                onPressed:(){textController.text = "";
               number1 = null;
               number2 = null;
               result = null;
               resultResult = null;
               function = null;
-                }, child: Text("C"),),
-              ElevatedButton(onPressed:(){textController.text = textController.text + "0";}, child: Text("0"),),
-              ElevatedButton(onPressed:(){
+                }, child: Text("C", style: TextStyle (
+                fontSize: 30, //размер текста
+                color: Colors.black87,
+              ),),),
+              ElevatedButton(onPressed:(){textController.text = textController.text + "0";}, child: Text("0", style: TextStyle (
+                fontSize: 30,),),),
+              ElevatedButton(
+                style: ButtonStyle (
+                  backgroundColor: MaterialStateProperty.all<Color>(Colors.grey),),
+                onPressed:(){
                 number1del = double.tryParse(textController.text);
                 function = 4;
                 setState((){
                   textController.clear();
                 }
                 );
-              }, child: Text("/"),),
-              ElevatedButton(onPressed:(){
+              }, child: Text("/", style: TextStyle (
+                fontSize: 30, //размер текста
+                color: Colors.black87,
+              ),),),
+              ElevatedButton(
+                style: ButtonStyle (
+                  backgroundColor: MaterialStateProperty.all<Color>(Colors.blueGrey),),
+                onPressed:(){
                 number2 = int.tryParse(textController.text);
                 number2del = double.tryParse(textController.text);
                 if (function == 1) {
@@ -130,7 +175,10 @@ class _CalculatorState extends State<Calculator> {
                   }
                   );
                 }
-              }, child: Text("="),),
+              }, child: Text("=", style: TextStyle (
+                fontSize: 30, //размер текста
+                color: Colors.black87,
+              ),),),
 
             ],
         )
@@ -140,5 +188,3 @@ class _CalculatorState extends State<Calculator> {
     );
   }
 }
-
-
