@@ -13,21 +13,19 @@ class Calculator extends StatefulWidget {
 
 class _CalculatorState extends State<Calculator> {
   final textController = TextEditingController();
-  int? number1 = null;
-  int? number2 = null;
-  int? result = null;
+  double? number1 = null;
+  double? number2 = null;
+  double? result = null;
   String? resultResult = null;
   int? function = null;
-  double? number1del = null;
-  double? number2del = null;
-  double? resultDel = null;
-  @override
+   @override
   Widget build(BuildContext context) {
     var child;
     return MaterialApp(
         home: Scaffold(
         appBar: AppBar(
         title: TextField(
+          style: TextStyle(fontSize: 30,),
         controller: textController,
     ),
     ),
@@ -52,10 +50,10 @@ class _CalculatorState extends State<Calculator> {
               ElevatedButton(onPressed:(){textController.text = textController.text + "3";}, child: Text("3", style: TextStyle (
                 fontSize: 30,),),),
               ElevatedButton(
-                style: ButtonStyle (
+                style: ButtonStyle(
                   backgroundColor: MaterialStateProperty.all<Color>(Colors.grey),),
                 onPressed:(){
-                number1 = int.tryParse(textController.text);
+                number1 = double.tryParse(textController.text);
                 function = 1;
                 setState((){
                   textController.clear();
@@ -77,7 +75,7 @@ class _CalculatorState extends State<Calculator> {
                 style: ButtonStyle (
                   backgroundColor: MaterialStateProperty.all<Color>(Colors.grey),),
                 onPressed:(){
-                number1 = int.tryParse(textController.text);
+                number1 = double.tryParse(textController.text);
                 function = 2;
                 setState((){
                   textController.clear();
@@ -97,7 +95,7 @@ class _CalculatorState extends State<Calculator> {
                 style: ButtonStyle (
                   backgroundColor: MaterialStateProperty.all<Color>(Colors.grey),),
                 onPressed:(){
-                number1 = int.tryParse(textController.text);
+                number1 = double.tryParse(textController.text);
                 function = 3;
                 setState((){
                   textController.clear();
@@ -123,10 +121,10 @@ class _CalculatorState extends State<Calculator> {
               ElevatedButton(onPressed:(){textController.text = textController.text + "0";}, child: Text("0", style: TextStyle (
                 fontSize: 30,),),),
               ElevatedButton(
-                style: ButtonStyle (
+                style: ButtonStyle(
                   backgroundColor: MaterialStateProperty.all<Color>(Colors.grey),),
                 onPressed:(){
-                number1del = double.tryParse(textController.text);
+                number1 = double.tryParse(textController.text);
                 function = 4;
                 setState((){
                   textController.clear();
@@ -140,8 +138,7 @@ class _CalculatorState extends State<Calculator> {
                 style: ButtonStyle (
                   backgroundColor: MaterialStateProperty.all<Color>(Colors.blueGrey),),
                 onPressed:(){
-                number2 = int.tryParse(textController.text);
-                number2del = double.tryParse(textController.text);
+                number2 = double.tryParse(textController.text);
                 if (function == 1) {
                  result = (number1! + number2!);
                  resultResult = result.toString();
@@ -167,8 +164,8 @@ class _CalculatorState extends State<Calculator> {
                   }
                   );
                 } else if (function == 4){
-                  resultDel = (number1del! / number2del!);
-                  resultResult = resultDel.toString();
+                  result = (number1! / number2!);
+                  resultResult = result.toString();
                   setState((){
                     textController.clear();
                     textController.text = resultResult!;
@@ -179,6 +176,8 @@ class _CalculatorState extends State<Calculator> {
                 fontSize: 30, //размер текста
                 color: Colors.black87,
               ),),),
+              ElevatedButton(onPressed:(){textController.text = textController.text + ".";}, child: Text(".", style: TextStyle (
+                fontSize: 30,),),),
 
             ],
         )
